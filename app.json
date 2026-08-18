@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "Mappory",
+    "slug": "jice-atlas",
+    "version": "0.6.8",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "userInterfaceStyle": "automatic"
+    },
+    "android": {
+      "edgeToEdgeEnabled": true
+    },
+    "plugins": [
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Mappory需要读取你的照片、拍摄时间和照片位置，用来把旅行记忆放回地图。",
+          "savePhotosPermission": "Mappory不会主动修改你的相册；此权限仅用于系统媒体能力。",
+          "isAccessMediaLocationEnabled": true,
+          "granularPermissions": [
+            "photo"
+          ]
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Mappory仅在需要把坐标转换为可读地点名称时使用系统位置服务。"
+        }
+      ]
+    ]
+  }
+}
