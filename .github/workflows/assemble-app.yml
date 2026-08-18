@@ -1,16 +1,15 @@
 name: Assemble Mappory App source
 
 on:
-  push:
-    paths:
-      - '.github/workflows/assemble-app.yml'
-      - '.app-parts/**'
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
 
 jobs:
   assemble:
+    if: github.event.issue.title == 'assemble-mappory-source'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,9 +33,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add App.tsx .app-parts
-          if git diff --cached --quiet; then
-            echo "Nothing to commit"
-            exit 0
-          fi
           git commit -m "Add Mappory v0.6.8 application source"
           git push
