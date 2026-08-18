@@ -28,6 +28,7 @@ jobs:
           echo "ceea6298ff2ca140d2093458b4b49eef74b3ff4760ad771b054a7797db082b3f  App.tsx" | sha256sum -c -
           rm App.tsx.gz
           rm -rf .app-parts
+          rm -f .assembly-trigger
 
       - name: Commit reconstructed source to PR branch
         shell: bash
@@ -35,6 +36,6 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add App.tsx .app-parts
+          git add -A
           git commit -m "Add Mappory v0.6.8 application source"
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
