@@ -1,0 +1,9 @@
+node_modules/
+.expo/
+dist/
+.validation/
+VALIDATION*
+*.log
+*.zip
+.DS_Store
+Thumbs.db
